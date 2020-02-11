@@ -1,2 +1,2 @@
-def log(msg:str)->None:
+def log(msg: str) -> None:
     print(msg)

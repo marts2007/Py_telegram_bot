@@ -2,22 +2,19 @@ import json
 from logger import log
 # loaded config
 
-
-
 # Read data from file:
 try:
     conf = json.load( open( "config.json" ) )
 except Exception as e:
     log('Config load failed')
     conf = {
-        'apikey':'',
-        'user_list':[],
-        'proxies' : {
+        'apikey': '',
+        'user_list': [],
+        'proxies': {
             "https": "http://192.168.0.3:8118" #remove this line if you do not need proxy
         },
-        'lastupdate_id':0
+        'lastupdate_id': 0
     }
-
 
 
 class Config(object):
@@ -28,14 +25,14 @@ class Config(object):
     def __getattr__(self, name):
         return self.get_property(name)
 
-    def change(self,name,value):
-        self._config[name]=value
+    def change(self, name, value):
+        self._config[name] = value
         self.store_config()
 
-    def _config(self,name,value):
-        self._config[name]=value
+    def _config(self, name, value):
+        self._config[name] = value
 
-    def get_property(self, property_name:str):
+    def get_property(self, property_name: str):
         log(property_name)
         if property_name not in self._config.keys(): # we don't want KeyError
             return None  # just return None if not found
@@ -45,5 +42,4 @@ class Config(object):
         json.dump(self._config, open("config.json", 'w'))
 
 
-
-config=Config()
+config = Config()
