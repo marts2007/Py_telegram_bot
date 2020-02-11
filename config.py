@@ -13,7 +13,7 @@ except Exception as e:
         'apikey':'',
         'user_list':[],
         'proxies' : {
-            "https": "http://192.168.0.3:8118"
+            "https": "http://192.168.0.3:8118" #remove this line if you do not need proxy
         },
         'lastupdate_id':0
     }
