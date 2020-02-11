@@ -30,7 +30,7 @@ class Telegram:
             time.sleep(5)
 
     def get_updates(self):
-        response = self.do_tel_query('getUpdates', {'offset': int(config.lastupdate_id+1)})
+        response = self.do_tel_query('getUpdates', {'offset': int(config.lastupdate_id)+1})
         if type(response) == dict:
             if 'ok' in response:
                 if 'result' in response:
